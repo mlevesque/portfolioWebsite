@@ -1,0 +1,1 @@
+I contributed to implementing <b>progression systems</b> and bug fixes in both <b>frontend</b> and <b>PHP backend</b> game logic.

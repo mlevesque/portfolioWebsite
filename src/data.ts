@@ -25,19 +25,19 @@ import wheelOfFortune02 from './assets/wheel-of-fortune/wheel-of-fortune02.jpg';
 import wheelOfFortune03 from './assets/wheel-of-fortune/wheel-of-fortune03.jpg';
 
 // VIDEO BINGO IMAGES
-//import videoBingo01 from './assets/gsn-video-bingo/video-bingo01.jpg';
-//import videoBingo02 from './assets/gsn-video-bingo/video-bingo02.jpg';
-//import videoBingo03 from './assets/gsn-video-bingo/video-bingo03.jpg';
+import videoBingo01 from './assets/video-bingo/video-bingo01.jpg';
+import videoBingo02 from './assets/video-bingo/video-bingo02.jpg';
+import videoBingo03 from './assets/video-bingo/video-bingo03.jpg';
 
 // CHEFVILLE IMAGES
-//import chefville01 from './assets/zynga-chefville/chefville01.jpg';
-//import chefville02 from './assets/zynga-chefville/chefville02.jpg';
-//import chefville03 from './assets/zynga-chefville/chefville03.jpg';
+import chefville01 from './assets/chefville/chefville01.jpg';
+import chefville02 from './assets/chefville/chefville02.jpg';
+import chefville03 from './assets/chefville/chefville03.jpg';
 
 // CAFE WORLD IMAGES
-//import cafeWorld01 from './assets/zynga-cafe-world/cafe-world01.jpg';
-//import cafeWorld02 from './assets/zynga-cafe-world/cafe-world02.jpg';
-//import cafeWorld03 from './assets/zynga-cafe-world/cafe-world03.jpg';
+import cafeWorld01 from './assets/cafe-world/cafe-world01.jpg';
+import cafeWorld02 from './assets/cafe-world/cafe-world02.jpg';
+import cafeWorld03 from './assets/cafe-world/cafe-world03.jpg';
 
 export const professionalProjects: Project[] = [
     // MICROSOFT TEAMS
@@ -93,6 +93,11 @@ export const professionalProjects: Project[] = [
     company: Company.GSNGames,
     role: "Game Developer",
     dates: "2014",
+    images: [
+        videoBingo01, 
+        videoBingo02,
+        videoBingo03,
+    ],
     summary: videoBingoSummary,
     technologies: ["Flash", "ActionScript 3"],
     },
@@ -104,6 +109,11 @@ export const professionalProjects: Project[] = [
     company: Company.Zynga,
     role: "Senior Software Engineer",
     dates: "2012 - 2014",
+    images: [
+        chefville01, 
+        chefville02, 
+        chefville03,
+    ],
     summary: chefvilleSummary,
     technologies: ["Flash", "ActionScript 3", "PHP"],
     },
@@ -115,6 +125,11 @@ export const professionalProjects: Project[] = [
     company: Company.Zynga,
     role: "Software Engineer",
     dates: "2011 - 2012",
+    images: [
+        cafeWorld01, 
+        cafeWorld02, 
+        cafeWorld03,
+    ],
     summary: cafeWorldSummary,
     technologies: ["Flash", "ActionScript 3", "PHP"],
     },

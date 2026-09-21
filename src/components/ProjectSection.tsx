@@ -6,6 +6,10 @@ import gsngamesLogo from '../assets/gsngames.svg';
 import zyngaLogo from '../assets/zynga.svg';
 
 import teamsLogo from '../assets/teams.svg';
+import wheelOfFortuneLogo from '../assets/wheel-of-fortune-slots.png';
+import videoBingoLogo from '../assets/video-bingo.png';
+import chefvilleLogo from '../assets/chefville.png';
+import cafeWorldLogo from '../assets/cafe-world.png';
 
 export const Company = {
   None: 'None',
@@ -34,8 +38,28 @@ const companyLogos: Partial<Record<Company, string>> = {
   [Company.Zynga]: zyngaLogo,
 };
 
-const projectLogos: Partial<Record<ProjectID, string>> = {
-  [ProjectID.MicrosoftTeams]: teamsLogo,
+const projectLogos: Partial<Record<ProjectID, { src: string; size?: { width: number; height: number } }>> = {
+  [ProjectID.MicrosoftTeams]: { src: teamsLogo },
+
+  [ProjectID.GSNWheelOfFortune]: {
+    src: wheelOfFortuneLogo,
+    size: { width: 103, height: 64 },
+  },
+
+  [ProjectID.GSNVideoBingo]: {
+    src: videoBingoLogo,
+    size: { width: 103, height: 64 },
+  },
+
+  [ProjectID.ZyngaChefville]: {
+    src: chefvilleLogo,
+    size: { width: 103, height: 64 },
+  },
+
+  [ProjectID.ZyngaCafeWorld]: {
+    src: cafeWorldLogo,
+    size: { width: 103, height: 64 },
+  },
 };
 
 function renderSummary(summary: string) {
@@ -60,6 +84,7 @@ export interface Project {
 
 export function ProjectSection({ project }: { project: Project }) {
   const projectImages = project.images?.slice(0, 3) ?? [];
+  const projectLogo = projectLogos[project.id as ProjectID];
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -82,10 +107,15 @@ export function ProjectSection({ project }: { project: Project }) {
       <div className="project-heading">
         <div className="project-heading-content">
           <div className="project-title-row">
-            {projectLogos[project.id as ProjectID] && (
+            {projectLogo && (
               <img
                 className="project-logo"
-                src={projectLogos[project.id as ProjectID]}
+                src={projectLogo.src}
+                style={projectLogo.size ? {
+                  width: projectLogo.size.width,
+                  height: projectLogo.size.height,
+                  flexBasis: projectLogo.size.width,
+                } : undefined}
                 alt=""
                 aria-hidden="true"
               />
