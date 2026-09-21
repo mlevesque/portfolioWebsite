@@ -1,5 +1,12 @@
 import { Company, ProjectID, type Project } from './components/ProjectSection';
 
+import teamsSummary from './content/microsoft-teams-summary.txt?raw';
+
+import teams01 from './assets/teams/teams01.jpg';
+//import teams02 from './assets/teams/teams02.jpg';
+//import teams03 from './assets/teams/teams03.jpg';
+import teams04 from './assets/teams/teams04.jpg';
+
 export const professionalProjects: Project[] = [
     // MICROSOFT TEAMS
     {
@@ -8,7 +15,11 @@ export const professionalProjects: Project[] = [
     company: Company.Microsoft,
     role: "Software Engineer II",
     dates: "2020 - 2026",
-    summary: "Developed and maintained the Microsoft Teams application.",
+    images: [
+        teams04, 
+        teams01,
+    ],
+    summary: teamsSummary,
     technologies: ["C++", "Widnows", "macOS", "Direct3D", "Metal", "Copilot", "AI Agentic Coding"],
     },
 
@@ -18,7 +29,7 @@ export const professionalProjects: Project[] = [
     title: "Amazon Seller Central",
     company: Company.Amazon,
     role: "Software Development Engineer",
-    dates: "2017 - 2020",
+    dates: "2017 - 2018",
     summary: "Developed and maintained the Amazon Seller Central application.",
     technologies: ["React", "TypeScript", "Redux", "CSS"],
     },

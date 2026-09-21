@@ -1,4 +1,5 @@
 import './ProjectSection.css';
+import { useEffect, useState } from 'react';
 import microsoftLogo from '../assets/microsoft.svg';
 import amazonLogo from '../assets/amazon.svg';
 import gsngamesLogo from '../assets/gsngames.svg';
@@ -41,11 +42,30 @@ export interface Project {
     company: Company;
     role: string;
     dates: string;
+    images?: string[];
     summary: string;
     technologies: string[];
 };
 
 export function ProjectSection({ project }: { project: Project }) {
+  const projectImages = project.images?.slice(0, 3) ?? [];
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!selectedImage) {
+      return;
+    }
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [selectedImage]);
+
   return (
     <section className="project-section">
       <div className="project-heading">
@@ -79,6 +99,22 @@ export function ProjectSection({ project }: { project: Project }) {
         </div>
       </div>
 
+      {projectImages.length > 0 && (
+        <div className={`project-images project-images-${projectImages.length}`}>
+          {projectImages.map((image, index) => (
+            <button
+              key={image}
+              className="project-image-button"
+              type="button"
+              onClick={() => setSelectedImage(image)}
+              aria-label={`Open ${project.title} example ${index + 1}`}
+            >
+              <img src={image} alt={`${project.title} example ${index + 1}`} />
+            </button>
+          ))}
+        </div>
+      )}
+
       <p className="project-summary">{project.summary}</p>
 
       <div className="technologies">
@@ -88,6 +124,28 @@ export function ProjectSection({ project }: { project: Project }) {
           </span>
         ))}
       </div>
+
+      {selectedImage && (
+        <div
+          className="image-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Expanded ${project.title} image`}
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="image-lightbox-content" onClick={(event) => event.stopPropagation()}>
+            <button
+              className="image-lightbox-close"
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close expanded image"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+            <img src={selectedImage} alt={`${project.title} enlarged`} />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
