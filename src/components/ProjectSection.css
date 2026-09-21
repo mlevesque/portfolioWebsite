@@ -129,6 +129,7 @@
 }
 
 .project-image-button {
+  width: 100%;
   padding: 0;
   border: 0;
   background: none;
@@ -142,6 +143,19 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.project-images-portrait .project-image-button {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 9 / 16;
+  background: #eef0f2;
+  overflow: hidden;
+}
+
+.project-images-portrait .project-image-button img {
+  height: 100%;
+  object-fit: contain;
 }
 
 .project-image-button:focus-visible {
@@ -265,6 +279,10 @@
 
   .project-images-1 {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-images-portrait {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .project-summary {

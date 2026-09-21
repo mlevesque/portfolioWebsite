@@ -16,10 +16,12 @@ export const Company = {
 } as const;
 
 export const ProjectID = {
-  Teams: 'teams',
+  MicrosoftTeams: 'teams',
   AmazonSellerCentral: 'amazon-seller-central',
-  WheelOfFortune: 'wheel-of-fortune',
-  Chefville: 'chefville',
+  GSNWheelOfFortune: 'wheel-of-fortune',
+  GSNVideoBingo: 'video-bingo',
+  ZyngaChefville: 'chefville',
+  ZyngaCafeWorld: 'cafe-world',
 } as const;
 
 export type ProjectID = (typeof ProjectID)[keyof typeof ProjectID];
@@ -33,8 +35,16 @@ const companyLogos: Partial<Record<Company, string>> = {
 };
 
 const projectLogos: Partial<Record<ProjectID, string>> = {
-  [ProjectID.Teams]: teamsLogo,
+  [ProjectID.MicrosoftTeams]: teamsLogo,
 };
+
+function renderSummary(summary: string) {
+  return summary.split(/(<b>[\s\S]*?<\/b>)/g).map((part, index) => {
+    const boldText = part.match(/^<b>([\s\S]*)<\/b>$/);
+
+    return boldText ? <strong key={index}>{boldText[1]}</strong> : part;
+  });
+}
 
 export interface Project {
     id: string;
@@ -43,6 +53,7 @@ export interface Project {
     role: string;
     dates: string;
     images?: string[];
+    imageLayout?: 'landscape' | 'portrait';
     summary: string;
     technologies: string[];
 };
@@ -100,7 +111,9 @@ export function ProjectSection({ project }: { project: Project }) {
       </div>
 
       {projectImages.length > 0 && (
-        <div className={`project-images project-images-${projectImages.length}`}>
+        <div
+          className={`project-images project-images-${projectImages.length} project-images-${project.imageLayout ?? 'landscape'}`}
+        >
           {projectImages.map((image, index) => (
             <button
               key={image}
@@ -115,7 +128,7 @@ export function ProjectSection({ project }: { project: Project }) {
         </div>
       )}
 
-      <p className="project-summary">{project.summary}</p>
+      <p className="project-summary">{renderSummary(project.summary)}</p>
 
       <div className="technologies">
         {project.technologies.map((tech) => (

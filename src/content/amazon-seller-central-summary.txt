@@ -1,0 +1,1 @@
+Helped implement an updated single-page application for "Manage Your Orders" page using <b>React</b> and <b>Redux</b> to create a more modern user interface and experience.
