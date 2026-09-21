@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 20">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #225ccc;
+      }
+
+      .st0, .st1, .st2 {
+        fill-rule: evenodd;
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st2 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-486.23" y1="136.64" x2="-486.59" y2="137.02" gradientTransform="translate(2687.5 -767.9895) scale(5.5 5.641)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path id="application-pdf-b" class="st1" d="M16,17.75c0,1.24-1.01,2.25-2.25,2.25H2.25c-1.24,0-2.25-1.01-2.25-2.25V2.25C0,1.01,1.01,0,2.25,0h8.25l5.5,5.5v12.25Z"/>
+    <path id="application-pdf-b1" class="st0" d="M16,17.75c0,1.24-1.01,2.25-2.25,2.25H2.25c-1.24,0-2.25-1.01-2.25-2.25V2.25C0,1.01,1.01,0,2.25,0h8.25l5.5,5.5v12.25Z"/>
+    <path id="application-pdf-e" class="st1" d="M10.5,0l5.5,5.5h-3.25c-1.24,0-2.25-.87-2.25-2.11V0h0Z"/>
+    <path id="application-pdf-e1" class="st2" d="M10.5,0l5.5,5.5h-3.25c-1.24,0-2.25-.87-2.25-2.11V0h0Z"/>
+  </g>
+  <path class="st3" d="M14.51,5.73l-2.34,10.85h-2.79l-1.38-6.5-1.45,6.51h-2.82L1.49,5.74h2.3l1.39,7.16,1.38-7.16h2.82l1.44,7.16,1.35-7.16h2.34,0Z"/>
+</svg>

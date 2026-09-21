@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 16 20">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2 {
+        fill-rule: evenodd;
+      }
+
+      .st3 {
+        fill: #f2f2f2;
+      }
+
+      .st1 {
+        fill: url(#linear-gradient);
+      }
+
+      .st2 {
+        fill: url(#linear-gradient1);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-556.62" y1="38.4" x2="-556.62" y2="39.4" gradientTransform="translate(8914 -768) scale(16 20)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e03a39"/>
+      <stop offset="1" stop-color="#a42f14"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="-486.23" y1="136.64" x2="-486.59" y2="137.02" gradientTransform="translate(2687.5 -767.9895) scale(5.5 5.641)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".3"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path id="application-pdf-b" class="st0" d="M16,17.75c0,1.24-1.01,2.25-2.25,2.25H2.25c-1.24,0-2.25-1.01-2.25-2.25V2.25C0,1.01,1.01,0,2.25,0h8.25l5.5,5.5v12.25Z"/>
+    <path id="application-pdf-b1" class="st1" d="M16,17.75c0,1.24-1.01,2.25-2.25,2.25H2.25c-1.24,0-2.25-1.01-2.25-2.25V2.25C0,1.01,1.01,0,2.25,0h8.25l5.5,5.5v12.25Z"/>
+    <path id="application-pdf-e" class="st0" d="M10.5,0l5.5,5.5h-3.25c-1.24,0-2.25-.87-2.25-2.11V0h0Z"/>
+    <path id="application-pdf-e1" class="st2" d="M10.5,0l5.5,5.5h-3.25c-1.24,0-2.25-.87-2.25-2.11V0h0Z"/>
+  </g>
+  <path class="st3" d="M14.73,13.99c-1.01-1.42-2.49-1.55-4.58-1.6-.67-.57-1.27-1.24-1.68-1.97.78-1.94,1.59-3.97.53-5.46-.57-.66-1.61-.69-2.16,0-.94,1.22-.19,4.2.4,5.48-.52,1.03-.82,1.53-1.35,2.36-1.55.28-3.1.74-4.13,1.71-1.19,1.02-.79,2.82.86,2.84,1.77-.04,3.06-2.4,3.93-3.53.44-.07.92-.13,1.47-.18.64-.06,1.21-.1,1.72-.12.8.73,1.81,1.62,2.44,2.01.43.27.86.54,1.37.53,1.06.03,1.76-1.15,1.19-2.06ZM7.58,7.51c-.05-.4-.06-.82-.06-1.26-.02-.76.59-.97.81-.26.16.99-.13,2.01-.47,2.98-.14-.46-.23-.95-.28-1.47ZM2.18,16.02c0-.97,1.59-1.55,2.78-1.9-.55.65-1.93,2.79-2.78,1.9ZM7.35,12.59h-.03c.16-.29.38-.63.57-1.02.21.31.47.61.72.9-.41.03-.86.08-1.27.12ZM12.79,14.6c-.38-.25-.82-.59-1.35-1.05,2.67.16,3.03,2.15,1.35,1.05Z"/>
+</svg>
