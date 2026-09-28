@@ -1,5 +1,8 @@
 import './ProjectSection.css';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { hasProjectDetails } from '../content/projectDetails';
+import { ProjectArrow } from './ProjectArrow';
 import microsoftLogo from '../assets/microsoft.svg';
 import amazonLogo from '../assets/amazon.svg';
 import gsngamesLogo from '../assets/gsngames.svg';
@@ -120,7 +123,9 @@ export function ProjectSection({ project }: { project: Project }) {
                 aria-hidden="true"
               />
             )}
-            <h2 className="project-title">{project.title}</h2>
+            <h2 className="project-title">
+              <Link to={`/projects/${project.id}`}>{project.title}</Link>
+            </h2>
           </div>
           <span className="project-company">
             {companyLogos[project.company] && (
@@ -159,6 +164,13 @@ export function ProjectSection({ project }: { project: Project }) {
       )}
 
       <p className="project-summary">{renderSummary(project.summary)}</p>
+
+      {hasProjectDetails(project.id) && (
+        <Link className="project-details-link" to={`/projects/${project.id}`}>
+          View project details
+          <ProjectArrow />
+        </Link>
+      )}
 
       <div className="technologies">
         {project.technologies.map((tech) => (
