@@ -18,7 +18,7 @@ export function TopTitle() {
           <h2 className="top-title-subheading">Senior Software Engineer</h2>
         </div>
         <div className="resume-links" aria-label="Resume downloads">
-          <span>RESUME</span>
+          <span>RÉSUMÉ</span>
           <div className="resume-downloads">
             <a href={resumePDF} download="mlevesque_resume.pdf" aria-label="Download resume as PDF">
               <img src={pdfIcon} alt="PDF" /> PDF
