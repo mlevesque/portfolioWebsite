@@ -1,6 +1,6 @@
 import './ProjectSection.css';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { hasProjectDetails } from '../content/projectDetails';
 import { ProjectArrow } from './ProjectArrow';
 import { ProjectIdentity } from './ProjectIdentity';

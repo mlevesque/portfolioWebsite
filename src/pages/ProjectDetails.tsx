@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router';
 import { useEffect } from 'react';
 import { Company, type Company as CompanyName, type Project } from '../components/ProjectModel';
 import { ProjectArrow } from '../components/ProjectArrow';
@@ -43,14 +43,19 @@ export function ProjectDetails() {
 
   if (!project) {
     return (
+      <>
+        <title>Michael Levesque - Project Not Found</title>
       <main className="project-details project-details-not-found">
         <h1>Project not found</h1>
         <Link to="/">Back to projects</Link>
       </main>
+      </>
     );
   }
 
   return (
+    <>
+    <title>Michael Levesque - {project.title}</title>
     <main className="project-details">
       <Link className="project-details-back" to="/">
         <ProjectArrow direction="left" />
@@ -109,5 +114,8 @@ export function ProjectDetails() {
         </article>
       )}
     </main>
+    </>
   );
 }
+
+export default ProjectDetails;

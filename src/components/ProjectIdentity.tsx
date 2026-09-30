@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { ProjectID, type Project } from './ProjectModel';
 
 import teamsLogo from '../assets/teams.svg';
