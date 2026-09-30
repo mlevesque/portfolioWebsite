@@ -55,7 +55,7 @@ export function ProjectDetails() {
 
   return (
     <>
-    <title>Michael Levesque - {project.title}</title>
+    <title>{`Michael Levesque - ${project.title}`}</title>
     <main className="project-details">
       <Link className="project-details-back" to="/">
         <ProjectArrow direction="left" />
