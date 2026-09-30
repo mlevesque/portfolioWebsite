@@ -1,4 +1,4 @@
-import { Company, ProjectID, type Project } from './components/ProjectSection';
+import { Company, ProjectID, type Project } from './components/ProjectModel';
 
 import teamsSummary from './content/microsoft-teams-summary.txt?raw';
 import amazonSummary from './content/amazon-seller-central-summary.txt?raw';
@@ -47,6 +47,7 @@ export const professionalProjects: Project[] = [
     company: Company.Microsoft,
     role: "Software Engineer II",
     dates: "2020 - 2026",
+    showCompanyDisclaimer: true,
     images: [
         teams04, 
         teams05,

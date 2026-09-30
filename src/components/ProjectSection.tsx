@@ -1,66 +1,11 @@
 import './ProjectSection.css';
 import { useEffect, useState } from 'react';
-import microsoftLogo from '../assets/microsoft.svg';
-import amazonLogo from '../assets/amazon.svg';
-import gsngamesLogo from '../assets/gsngames.svg';
-import zyngaLogo from '../assets/zynga.svg';
-
-import teamsLogo from '../assets/teams.svg';
-import wheelOfFortuneLogo from '../assets/wheel-of-fortune-slots.png';
-import videoBingoLogo from '../assets/video-bingo.png';
-import chefvilleLogo from '../assets/chefville.png';
-import cafeWorldLogo from '../assets/cafe-world.png';
-
-export const Company = {
-  None: 'None',
-  Microsoft: 'Microsoft',
-  Amazon: 'Amazon',
-  GSNGames: 'GSNGames',
-  Zynga: 'Zynga',
-} as const;
-
-export const ProjectID = {
-  MicrosoftTeams: 'teams',
-  AmazonSellerCentral: 'amazon-seller-central',
-  GSNWheelOfFortune: 'wheel-of-fortune',
-  GSNVideoBingo: 'video-bingo',
-  ZyngaChefville: 'chefville',
-  ZyngaCafeWorld: 'cafe-world',
-} as const;
-
-export type ProjectID = (typeof ProjectID)[keyof typeof ProjectID];
-export type Company = (typeof Company)[keyof typeof Company];
-
-const companyLogos: Partial<Record<Company, string>> = {
-  [Company.Microsoft]: microsoftLogo,
-  [Company.Amazon]: amazonLogo,
-  [Company.GSNGames]: gsngamesLogo,
-  [Company.Zynga]: zyngaLogo,
-};
-
-const projectLogos: Partial<Record<ProjectID, { src: string; size?: { width: number; height: number } }>> = {
-  [ProjectID.MicrosoftTeams]: { src: teamsLogo },
-
-  [ProjectID.GSNWheelOfFortune]: {
-    src: wheelOfFortuneLogo,
-    size: { width: 103, height: 64 },
-  },
-
-  [ProjectID.GSNVideoBingo]: {
-    src: videoBingoLogo,
-    size: { width: 103, height: 64 },
-  },
-
-  [ProjectID.ZyngaChefville]: {
-    src: chefvilleLogo,
-    size: { width: 103, height: 64 },
-  },
-
-  [ProjectID.ZyngaCafeWorld]: {
-    src: cafeWorldLogo,
-    size: { width: 103, height: 64 },
-  },
-};
+import { Link } from 'react-router-dom';
+import { hasProjectDetails } from '../content/projectDetails';
+import { ProjectArrow } from './ProjectArrow';
+import { ProjectIdentity } from './ProjectIdentity';
+import { CompanyLogo } from './CompanyLogo';
+import type { Project } from './ProjectModel';
 
 function renderSummary(summary: string) {
   return summary.split(/(<b>[\s\S]*?<\/b>)/g).map((part, index) => {
@@ -70,21 +15,8 @@ function renderSummary(summary: string) {
   });
 }
 
-export interface Project {
-    id: string;
-    title: string;
-    company: Company;
-    role: string;
-    dates: string;
-    images?: string[];
-    imageLayout?: 'landscape' | 'portrait';
-    summary: string;
-    technologies: string[];
-};
-
 export function ProjectSection({ project }: { project: Project }) {
   const projectImages = project.images?.slice(0, 3) ?? [];
-  const projectLogo = projectLogos[project.id as ProjectID];
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -106,31 +38,9 @@ export function ProjectSection({ project }: { project: Project }) {
     <section className="project-section">
       <div className="project-heading">
         <div className="project-heading-content">
-          <div className="project-title-row">
-            {projectLogo && (
-              <img
-                className="project-logo"
-                src={projectLogo.src}
-                style={projectLogo.size ? {
-                  width: projectLogo.size.width,
-                  height: projectLogo.size.height,
-                  flexBasis: projectLogo.size.width,
-                } : undefined}
-                alt=""
-                aria-hidden="true"
-              />
-            )}
-            <h2 className="project-title">{project.title}</h2>
-          </div>
+          <ProjectIdentity project={project} linkTo={`/projects/${project.id}`} />
           <span className="project-company">
-            {companyLogos[project.company] && (
-              <img
-                className="company-logo"
-                src={companyLogos[project.company]}
-                alt=""
-                aria-hidden="true"
-              />
-            )}
+            <CompanyLogo company={project.company} />
           </span>
           <div className="project-meta">
             <span>{project.role}</span>
@@ -159,6 +69,13 @@ export function ProjectSection({ project }: { project: Project }) {
       )}
 
       <p className="project-summary">{renderSummary(project.summary)}</p>
+
+      {hasProjectDetails(project.id) && (
+        <Link className="project-details-link" to={`/projects/${project.id}`}>
+          View project details
+          <ProjectArrow />
+        </Link>
+      )}
 
       <div className="technologies">
         {project.technologies.map((tech) => (

@@ -1,0 +1,13 @@
+.project-arrow {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 1em;
+  background-color: currentColor;
+  mask: url('../assets/arrow.svg') center / contain no-repeat;
+  -webkit-mask: url('../assets/arrow.svg') center / contain no-repeat;
+}
+
+.project-arrow-left {
+  transform: scaleX(-1);
+}

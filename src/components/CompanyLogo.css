@@ -1,0 +1,14 @@
+.company-logo {
+  width: auto;
+  max-width: 120px;
+  height: 80px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .company-logo {
+    max-width: 96px;
+    height: 24px;
+  }
+}

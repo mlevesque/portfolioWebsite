@@ -1,0 +1,199 @@
+import { ContentBox, ContentBoxRow, ProjectImage, FlowStack, FlowStep } from '../../../components/ProjectContent';
+import teams04 from '../../../assets/teams/render-pipeline-diagram.svg';
+import poly from '../../../assets/teams/teams-renderer-polymorphism.svg';
+
+One of my early projects on Microsoft Teams was redesigning the native video render pipeline for Teams 2.x. The existing pipeline concentrated many responsibilities in a large compositor class and relied heavily on platform-specific code paths. My goal was to break those responsibilities into interface-defined components, allowing different implementations to be selected based on platform or feature flags.
+
+My role went beyond implementing individual components. I helped define the architecture and component boundaries, documented the design, worked through the approach with the team, broke the implementation into work items, and implemented the initial interfaces and render flow that established the new pipeline.
+
+<ContentBoxRow>
+  <ContentBox
+    width="48%"
+    backgroundColor="#f4f6f8"
+    outlineColor="#aeb9c4"
+  >
+    ### Previous pipeline
+    The previous pipeline concentrated many responsibilities in a large, monolithic Compositor class, including composition, rendering coordination, resource management, and platform-specific behavior. Platform-specific code paths were handled largely through platform-check macros.
+  </ContentBox>
+  <ContentBox
+    width="48%"
+    backgroundColor="#f3f8f5"
+    outlineColor="#91b6a1"
+  >
+    ### New direction
+    Separate the major responsibilities of the render pipeline into focused components with clearly defined interfaces. A RenderController would own and coordinate these components, while platform-specific behavior would live in separate implementations. During initialization, a builder would select the appropriate implementations based on platform and configuration.
+  </ContentBox>
+</ContentBoxRow>
+
+This moved platform and implementation details out of the orchestration logic, allowing the RenderController to operate against stable interfaces.
+
+<ProjectImage
+  src={teams04}
+  alt="Render Pipeline Diagram"
+  layout="inline"
+  caption="Simplified diagram of some components in the Render Pipeline (Does not show all components for simplicity and clarity)"
+/>
+
+### Interfaces
+
+Components expose interfaces according to how they are used. Components that receive calls from outside the render pipeline expose a public API interface, while components participating in the render update flow expose an internal interface used by the RenderController. Some components, such as the Renderer, require only an internal interface.
+
+This separates operations that can be initiated externally from operations that should only occur as part of a render update.
+
+Here are some interface examples. *Note that these interfaces are simplified and not indicative of the actual interfaces in the Microsoft Teams render pipeline codebase.*
+
+#### Example: FrameSinkManager
+<ContentBoxRow>
+  <ContentBox
+    width="48%"
+    backgroundColor="#faf3c3"
+    outlineColor="#d6be1d"
+  >
+  ##### Public Interface
+  - AddFrameSink
+  - RemoveFrameSink
+  - RemoveAllFrameSinks
+  </ContentBox>
+  <ContentBox
+    width="48%"
+    backgroundColor="#faf3c3"
+    outlineColor="#d6be1d"
+  >
+  ##### Internal Interface
+  - GetFramesForComposition
+  </ContentBox>
+</ContentBoxRow>
+
+A FrameSink represents a single video source and holds the latest frame received from that source. The public interface manages the lifetime of those sources, while the internal interface allows the RenderController to gather the current frames needed for composition during a render update.
+
+#### Example: Renderer
+<ContentBoxRow>
+  <ContentBox
+    width="48%"
+    backgroundColor="#faf3c3"
+    outlineColor="#d6be1d"
+    transparent
+  >
+  The Renderer, for example, does not expose a public API. It participates only in the internal render flow and is accessed by the RenderController through its internal interface.
+  
+    <div style={{ height: '16px' }} />
+
+    <ContentBox
+      width="100%"
+      backgroundColor="#faf3c3"
+      outlineColor="#d6be1d"
+    >
+      ##### Compositor Internal Interface
+      - **CompositeFramesToBuffer**
+        - Passes in all frames from FrameSinkManager, layout config from LayoutManager, and the buffer from Renderer, and composes all frames to the buffer in the configured layout.
+    </ContentBox>
+  </ContentBox>
+  <ContentBox
+    width="48%"
+    backgroundColor="#faf3c3"
+    outlineColor="#d6be1d"
+  >
+  ##### Renderer Internal Interface
+  - **OnBeforeComposition**
+    - Handles any resource allocations or texture mapping before we send the composition buffer to the composer.
+  - **ClearBackground**
+    - Fills the buffer with a background color.
+  - **GetBuffer**
+    - Returns the buffer so RenderController can hand it to the compositor to compose frames into the buffer.
+  - **OnAfterComposition**
+    - Performs any post-composition logic before we present the buffer, such as texture unmapping.
+  - **Present**
+    - Presents the contents of the composition buffer to the screen.
+  </ContentBox>
+</ContentBoxRow>
+
+This keeps orchestration, composition, and presentation as separate responsibilities:
+- The RenderController coordinates the render cycle
+- The Compositor draws frames into the supplied buffer
+- The Renderer owns the buffer and platform-specific presentation logic
+
+### Component Implementations
+
+With the component interfaces established, different implementations could provide the same contract while handling platform- or configuration-specific behavior internally. The RenderController only needed to interact with the interface and did not need to know which concrete implementation it had been given.
+
+The clearest example was the Renderer. Windows could use a D3D-backed implementation, while macOS could use a Metal/CoreVideo-backed implementation. Both exposed the same renderer interface to the RenderController, while encapsulating their platform-specific resource management and presentation logic.
+
+<ProjectImage
+  src={poly}
+  alt="Renderer class derivations"
+  layout="inline"
+  width="60%"
+  caption="Different Renderer implementations and their inherited relationships"
+/>
+
+This use of polymorphism kept platform-specific behavior out of the render orchestration code and made renderer implementations interchangeable from the RenderController's perspective.
+
+During initialization, a builder selects and constructs the appropriate component implementations and injects them into the RenderController. This keeps implementation-selection logic out of the render loop itself.
+
+### Render Update Flow
+
+The RenderController owns a dedicated render thread. Each iteration of the render loop coordinates the pipeline's components to gather the current frames and layout, compose them into the renderer's buffer, and present the result. The thread then sleeps until the next render interval.
+
+<FlowStack width="60%">
+  <FlowStep backgroundColor="#1F3956" borderColor="#000000" textColor="#ffffff">
+    #### RenderController Render Start
+    Start the render cycle.
+  </FlowStep>
+
+  <FlowStep indent="24px" backgroundColor="#A9F49A" borderColor="#007F06">
+    #### Renderer<wbr />::OnBeforeComposition
+    <div>Allocate invalidated resources and composition buffer.</div>
+    In Software Composition: Map composition buffer texture to memory.
+  </FlowStep>
+
+  <FlowStep indent="24px" backgroundColor="#A9F49A" borderColor="#007F06">
+    #### Renderer<wbr />::ClearBackground
+    Clear the buffer with a background color.
+  </FlowStep>
+
+  <FlowStep indent="48px" backgroundColor="#D5EBFD" borderColor="#046BB7" >
+    #### FrameSinkManager<wbr />::GetFramesForComposition
+    Lock all current source frames from all FrameSinks for composition.
+  </FlowStep>
+
+  <FlowStep indent="48px" backgroundColor="#E6DCFE" borderColor="#9978FF">
+    #### LayoutManager<wbr />::GetLayout
+    Lock and retrieve current layout config
+  </FlowStep>
+
+  <FlowStep indent="48px" backgroundColor="#A9F49A" borderColor="#007F06">
+    #### Renderer<wbr />::GetBuffer
+    Retrieve the buffer from renderer to give to Compositor.
+  </FlowStep>
+
+  <FlowStep indent="48px" backgroundColor="#FF7B7B" borderColor="#B20000">
+    #### Compositor<wbr />::CompositeFramesToBuffer
+    Compose all locked source frames to the composition buffer using the locked layout config.
+  </FlowStep>
+
+  <FlowStep indent="24px" backgroundColor="#A9F49A" borderColor="#007F06">
+    #### Renderer<wbr />::OnAfterComposition
+    <div>Clean up resources.</div>
+    In Software Composition: Unmap composition buffer texture from memory.
+  </FlowStep>
+
+  <FlowStep indent="24px" backgroundColor="#A9F49A" borderColor="#007F06">
+    #### Renderer<wbr />::Present
+    Renderer presents the buffer; swap double buffers.
+  </FlowStep>
+
+  <FlowStep backgroundColor="#ffcf91" borderColor="#b65500">
+    #### Handle Render Failures
+    Failures during the render cycle are tracked across iterations rather than immediately triggering a fallback. Repeated hardware composition failures can transition the renderer to software composition. If software composition also fails repeatedly, the pipeline reports a complete render failure back to the UI client.
+  </FlowStep>
+
+  <FlowStep arrow={false} backgroundColor="#1F3956" borderColor="#000000" textColor="#ffffff">
+    #### Render Thread Sleep
+  </FlowStep>
+</FlowStack>
+
+### Conclusion
+
+Building this pipeline was one of my first major engineering projects at Microsoft. It required breaking a large existing system into clearly defined responsibilities, designing the interfaces between those components, and maintaining cross-platform behavior across Windows and macOS. The resulting architecture made the render pipeline easier to extend and maintain, while giving us cleaner ways to introduce platform-specific implementations and rendering fallback behavior.
+
+It was also one of the projects that most shaped how I think about modularity, ownership boundaries, and designing systems for future change.

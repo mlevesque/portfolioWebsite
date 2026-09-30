@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1088.07 789.71">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1f3956;
+      }
+
+      .cls-2 {
+        font-size: 47.37px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        font-family: HelveticaNeue-Medium, 'Helvetica Neue';
+        font-weight: 500;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        stroke: #314fff;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11 {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-12 {
+        fill: #e6e6e6;
+      }
+
+      .cls-13 {
+        fill: #fcc;
+      }
+
+      .cls-14 {
+        font-family: HelveticaNeue, 'Helvetica Neue';
+        font-size: 24px;
+      }
+
+      .cls-7 {
+        stroke: #ff2727;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-4 {
+        font-size: 48px;
+      }
+
+      .cls-15 {
+        letter-spacing: 0em;
+      }
+
+      .cls-16 {
+        fill: #bde3ff;
+      }
+
+      .cls-8 {
+        stroke: #515151;
+      }
+
+      .cls-9, .cls-11 {
+        stroke: #000;
+      }
+
+      .cls-10 {
+        stroke: #d6be1d;
+      }
+
+      .cls-11 {
+        stroke-width: 6px;
+      }
+
+      .cls-17 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-18 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-19 {
+        fill: #faf3c3;
+      }
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-19" x="735.55" y="1" width="325.53" height="148.51" rx="15" ry="15"/>
+    <rect class="cls-10" x="735.55" y=".5" width="325.53" height="149.51" rx="15" ry="15"/>
+    <text class="cls-4" transform="translate(789.81 60.14)"><tspan x="0" y="0">IRende</tspan><tspan class="cls-18" x="157.39" y="0">r</tspan><tspan class="cls-5" x="173.42" y="0">er </tspan><tspan x="10.68" y="57.6">Interface</tspan></text>
+  </g>
+  <g>
+    <rect class="cls-12" x="573.55" y="240.37" width="513.22" height="214.91" rx="15" ry="15"/>
+    <rect class="cls-8" x="573.05" y="240.37" width="513.72" height="214.91" rx="15" ry="15"/>
+    <text transform="translate(604.25 336.17)"><tspan class="cls-4"><tspan x="0" y="0">BaseRende</tspan><tspan class="cls-18" x="256.13" y="0">r</tspan><tspan class="cls-5" x="272.16" y="0">er Class</tspan></tspan><tspan class="cls-14"><tspan x="-12.7" y="28.8">Common, Platform-agnostic </tspan></tspan><tspan class="cls-14"><tspan x="-12.7" y="57.6">implementations, such as stat tracking.</tspan></tspan></text>
+  </g>
+  <g>
+    <rect class="cls-16" x="1" y="555.28" width="502.73" height="233.92" rx="15" ry="15"/>
+    <rect class="cls-6" x=".5" y="555.28" width="503.23" height="233.92" rx="15" ry="15"/>
+    <text transform="translate(34.47 646.18)"><tspan class="cls-4"><tspan x="0" y="0">MacRende</tspan><tspan class="cls-18" x="240.09" y="0">r</tspan><tspan class="cls-5" x="256.13" y="0">er Class </tspan></tspan><tspan class="cls-14"><tspan x="-15.47" y="28.8">Metal/Co</tspan><tspan class="cls-18" x="83.19" y="28.8">r</tspan><tspan x="90.75" y="28.8">e</tspan><tspan class="cls-18" x="103.64" y="28.8">V</tspan><tspan class="cls-15" x="117.87" y="28.8">ideo for Composition Bu</tspan><tspan class="cls-17" x="379.68" y="28.8">f</tspan><tspan x="386.36" y="28.8">fer </tspan></tspan><tspan class="cls-14"><tspan x="-15.47" y="57.6">configuration, Backg</tspan><tspan class="cls-18" x="206.77" y="57.6">r</tspan><tspan x="214.33" y="57.6">ound Clearing, and </tspan></tspan><tspan class="cls-14"><tspan x="-15.47" y="86.4">P</tspan><tspan class="cls-18" x=".08" y="86.4">r</tspan><tspan x="7.64" y="86.4">esentation</tspan></tspan></text>
+  </g>
+  <g>
+    <rect class="cls-13" x="572.76" y="555.28" width="514.81" height="233.92" rx="15" ry="15"/>
+    <rect class="cls-7" x="572.26" y="555.28" width="515.31" height="233.92" rx="15" ry="15"/>
+    <text transform="translate(618.08 646.18)"><tspan class="cls-4"><tspan x="0" y="0">WinRende</tspan><tspan class="cls-18" x="228.48" y="0">r</tspan><tspan class="cls-5" x="244.51" y="0">er Class </tspan></tspan><tspan class="cls-14"><tspan x="-27.32" y="28.8">Di</tspan><tspan class="cls-18" x="-5.1" y="28.8">r</tspan><tspan x="2.46" y="28.8">ect3D for Composition Bu</tspan><tspan class="cls-18" x="281.63" y="28.8">f</tspan><tspan x="288.3" y="28.8">fer </tspan></tspan><tspan class="cls-14"><tspan x="-27.32" y="57.6">configuration, Backg</tspan><tspan class="cls-18" x="194.92" y="57.6">r</tspan><tspan x="202.48" y="57.6">ound Clearing, and </tspan></tspan><tspan class="cls-14"><tspan x="-27.32" y="86.4">P</tspan><tspan class="cls-18" x="-11.77" y="86.4">r</tspan><tspan x="-4.21" y="86.4">esentation</tspan></tspan></text>
+  </g>
+  <g>
+    <rect class="cls-1" x="2.08" y="12.73" width="464.55" height="137.16" rx="15" ry="15"/>
+    <rect class="cls-9" x="2.08" y="12.73" width="464.55" height="137.16" rx="15" ry="15"/>
+    <text class="cls-3" transform="translate(44.94 98.44)"><tspan x="0" y="0">RenderCont</tspan><tspan class="cls-18" x="267.6" y="0">r</tspan><tspan class="cls-5" x="283.63" y="0">oller</tspan></text>
+  </g>
+  <g>
+    <line class="cls-11" x1="478.98" y1="81.3" x2="684.57" y2="81.3"/>
+    <polygon points="675.82 111.22 727.63 81.3 675.82 51.39 675.82 111.22"/>
+  </g>
+  <g>
+    <line class="cls-11" x1="880.97" y1="153.35" x2="880.97" y2="191.1"/>
+    <polygon points="851.06 182.35 880.97 234.16 910.89 182.35 851.06 182.35"/>
+  </g>
+  <g>
+    <line class="cls-11" x1="880.97" y1="464.88" x2="880.97" y2="502.63"/>
+    <polygon points="851.05 493.88 880.97 545.69 910.89 493.88 851.05 493.88"/>
+  </g>
+  <g>
+    <line class="cls-11" x1="590.76" y1="464.88" x2="519.85" y2="519.43"/>
+    <polygon points="508.54 490.38 485.73 545.69 545.03 537.81 508.54 490.38"/>
+  </g>
+  <text class="cls-2" transform="translate(538.24 71.8)"><tspan x="0" y="0">uses</tspan></text>
+  <path d="M38.9,599.62c-1.83,2.73-3.76,5.39-6.71,5.44-2.95.07-3.9-1.74-7.24-1.74s-4.4,1.7-7.2,1.81c-2.88.11-5.06-2.91-6.91-5.57-3.76-5.44-6.65-15.45-2.77-22.19,1.92-3.35,5.35-5.46,9.07-5.53,2.82-.04,5.5,1.92,7.24,1.92s4.98-2.36,8.39-2c1.43.07,5.44.57,8.01,4.36-.2.13-4.78,2.82-4.73,8.39.07,6.65,5.83,8.87,5.9,8.89-.07.15-.92,3.17-3.04,6.23ZM26.33,564.39c1.61-1.83,4.27-3.21,6.47-3.3.29,2.58-.75,5.17-2.29,7.02-1.52,1.87-4.03,3.32-6.49,3.13-.33-2.53.9-5.17,2.31-6.85Z"/>
+  <path d="M596.64,588.82v7.2h14.4v-14.4h-14.4v7.2Z"/>
+  <path d="M581.2,588.82v7.2h14.4v-14.4h-14.4s0,7.2,0,7.2Z"/>
+  <path d="M596.64,573.38v7.21h14.4v-14.4h-14.4v7.19Z"/>
+  <path d="M581.2,573.38v7.21h14.4v-14.4h-14.4s0,7.19,0,7.19Z"/>
+</svg>
