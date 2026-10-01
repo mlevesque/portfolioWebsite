@@ -1,6 +1,6 @@
 .projects-header {
 	width: min(1000px, calc(100% - 32px));
-	margin: 40px auto 20px;
+	margin: 14px auto 20px;
 	padding-bottom: 12px;
 
 	text-align: left;
@@ -19,7 +19,7 @@
 @media (max-width: 600px) {
 	.projects-header {
 		width: calc(100% - 32px);
-		margin-top: 28px;
+		margin-top: 14px;
 		margin-bottom: 16px;
 	}
 

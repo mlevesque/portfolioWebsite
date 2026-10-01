@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import type { Project } from './ProjectModel';
+import type { Project } from '../models/ProjectModel';
 import { ProjectIdentity } from './ProjectIdentity';
 import { CompanyLogo } from './CompanyLogo';
 import { ProjectImage } from './ProjectContent';

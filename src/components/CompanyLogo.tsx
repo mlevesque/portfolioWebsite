@@ -2,7 +2,7 @@ import microsoftLogo from '../assets/microsoft.svg';
 import amazonLogo from '../assets/amazon.svg';
 import gsngamesLogo from '../assets/gsngames.svg';
 import zyngaLogo from '../assets/zynga.svg';
-import { Company } from './ProjectModel';
+import { Company } from '../models/ProjectModel';
 
 import './CompanyLogo.css';
 

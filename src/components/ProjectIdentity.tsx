@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { ProjectID, type Project } from './ProjectModel';
+import { ProjectID, type Project } from '../models/ProjectModel';
 
 import teamsLogo from '../assets/teams.svg';
 import wheelOfFortuneLogo from '../assets/wheel-of-fortune-slots.png';

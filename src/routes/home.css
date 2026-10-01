@@ -1,0 +1,56 @@
+.project-content-box-row.home-introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  align-items: stretch;
+  gap: 16px;
+  width: min(1000px, calc(100% - 32px));
+  margin: 24px auto 32px;
+}
+
+.home-introduction-copy p {
+  margin: 0;
+}
+
+.home-technical-skills h2 {
+  margin: 0 0 14px;
+  color: #243b5a;
+  font-size: 1.2rem;
+}
+
+.home-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.home-skill-tag {
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: #e8eef7;
+  color: #243b5a;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.home-skill-top-tag {
+  font-weight: 600;
+  background: #d0e1f2;
+}
+
+.home-technical-skills .home-skill-tag {
+  font-size: 0.7rem;
+}
+
+.home-technical-skills .home-skill-top-tag {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 700px) {
+  .project-content-box-row.home-introduction {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 32px);
+  }
+}
