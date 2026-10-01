@@ -1,16 +1,14 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import './ProjectContent.css';
 
-type ContentBoxRowProps = {
-  children: ReactNode;
-};
+type ContentBoxRowProps = HTMLAttributes<HTMLDivElement>;
 
-type ContentBoxProps = {
-  children: ReactNode;
+type ContentBoxProps = Omit<HTMLAttributes<HTMLDivElement>, 'style'> & {
   width?: string;
   backgroundColor?: string;
   outlineColor?: string;
   transparent?: boolean;
+  textColor?: string;
 };
 
 type FlowStepProps = {
@@ -60,25 +58,40 @@ export function FlowStep({
   );
 }
 
-export function ContentBoxRow({ children }: ContentBoxRowProps) {
-  return <div className="project-content-box-row">{children}</div>;
+export function ContentBoxRow({ children, className, ...attributes }: ContentBoxRowProps) {
+  return (
+    <div
+      {...attributes}
+      className={`project-content-box-row${className ? ` ${className}` : ''}`}
+    >
+      {children}
+    </div>
+  );
 }
 
 export function ContentBox({
   children,
+  className,
   width = '100%',
   backgroundColor = '#ffffff',
   outlineColor = '#d5dce3',
   transparent = false,
+  textColor = 'inherit',
+  ...attributes
 }: ContentBoxProps) {
   const style: CSSProperties = {
     width,
     backgroundColor: transparent ? 'transparent' : backgroundColor,
     borderColor: transparent ? 'transparent' : outlineColor,
+    color: textColor,
   };
 
   return (
-    <div className="project-content-box" style={style}>
+    <div
+      {...attributes}
+      className={`project-content-box${className ? ` ${className}` : ''}`}
+      style={style}
+    >
       {children}
     </div>
   );

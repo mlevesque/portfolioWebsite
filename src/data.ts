@@ -1,4 +1,4 @@
-import { Company, ProjectID, type Project } from './components/ProjectModel';
+import { Company, ProjectID, type Project, type Feature } from './models/ProjectModel';
 
 import teamsSummary from './content/microsoft-teams-summary.txt?raw';
 import amazonSummary from './content/amazon-seller-central-summary.txt?raw';
@@ -39,6 +39,44 @@ import cafeWorld01 from './assets/cafe-world/cafe-world01.jpg';
 import cafeWorld02 from './assets/cafe-world/cafe-world02.jpg';
 import cafeWorld03 from './assets/cafe-world/cafe-world03.jpg';
 
+// FEATURED IMAGES
+import featureRenderPipeline from './assets/featured/feature-render-pipeline-diagram.jpg';
+
+export const highlightTopSkills:string[] = [
+    'C++',
+    'Cross-Platform Development',
+    'Software Architecture',
+    'Real-Time Rendering',
+];
+
+export const highlightOtherSkills:string[] = [
+    'C#',
+    'TypesScript',
+    'React',
+    'Unity',
+    'Direct3D',
+    'Metal',
+    'CoreVideo',
+    'Windows',
+    'macOS',
+    'iOS',
+];
+
+// FEATURED WORK
+export const featuredWork: Feature[] = [
+    {
+        title: "Render Pipeline Architecture",
+        projectName: "Microsoft Teams",
+        company: Company.Microsoft,
+        description: "Designed and helped implement a modular rendering architecture supporting Windows and macOS...",
+        image: featureRenderPipeline,
+        link: "/projects/teams",
+        anchor: "modular-render-pipeline",
+        tags: ['Architecture', 'Cross-Platform', 'Rendering', 'C++'],
+    },
+];
+
+// PROFESSIONAL PROJECTS
 export const professionalProjects: Project[] = [
     // MICROSOFT TEAMS
     {
@@ -136,6 +174,7 @@ export const professionalProjects: Project[] = [
     },
 ];
 
+// PERSONAL PROJECTS
 export const personalProjects: Project[] = [
     
 ];

@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router';
 import { useEffect } from 'react';
-import { Company, type Company as CompanyName, type Project } from '../components/ProjectModel';
+import { Company, type Company as CompanyName, type Project } from '../models/ProjectModel';
 import { ProjectArrow } from '../components/ProjectArrow';
 import { ProjectPageIntroduction } from '../components/ProjectPageIntroduction';
 import { professionalProjects, personalProjects } from '../data';

@@ -237,6 +237,12 @@
 }
 
 @media (max-width: 600px) {
+  .home-introduction {
+    grid-template-columns: minmax(0, 1fr);
+    width: calc(100% - 32px);
+    margin: 20px auto 28px;
+  }
+
   .project-content-flow {
     width: 100%;
   }

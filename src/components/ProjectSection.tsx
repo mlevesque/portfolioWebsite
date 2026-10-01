@@ -5,7 +5,7 @@ import { hasProjectDetails } from '../content/projectDetails';
 import { ProjectArrow } from './ProjectArrow';
 import { ProjectIdentity } from './ProjectIdentity';
 import { CompanyLogo } from './CompanyLogo';
-import type { Project } from './ProjectModel';
+import type { Project } from '../models/ProjectModel';
 
 function renderSummary(summary: string) {
   return summary.split(/(<b>[\s\S]*?<\/b>)/g).map((part, index) => {

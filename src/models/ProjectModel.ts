@@ -31,3 +31,14 @@ export interface Project {
   summary: string;
   technologies: string[];
 }
+
+export interface Feature {
+  title: string;
+  projectName?: string;
+  company?: Company;
+  description: string;
+  image?: string;
+  link: string;
+  anchor?: string;
+  tags: string[];
+}
